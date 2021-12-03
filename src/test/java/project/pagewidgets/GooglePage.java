@@ -28,7 +28,7 @@ public class GooglePage extends BasePage {
     }
 
     @Step("Пользователь переходит на сайт СберЛизинг")
-    public MainPage clickSberLeasingSite() {
+    public MainPage goToSberLeasingSite() {
         sberLeasingSiteLink.click();
 
         return new MainPage();
