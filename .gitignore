@@ -198,5 +198,7 @@ results/
 target/*
 build/*
 .*/*
+.allure-results/*
+*.iml
 
 
