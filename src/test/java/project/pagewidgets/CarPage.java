@@ -12,14 +12,8 @@ public class CarPage {
 
     @Step("Вадидация результата")
     public CarPage validateMark() {
-        for(String string : ResultsPage.listOfMarks){
-            System.out.println(string);
-        }
+        Assertions.assertEquals(ResultsPage.goalMark, head.getText());
 
-        System.out.println();
-
-        System.out.println(head.getText());
-        Assertions.assertTrue(ResultsPage.listOfMarks.contains(head.getText()));
         return this;
     }
 

@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$$x;
 
 public class ResultsPage {
 
-    public static ArrayList<String> listOfMarks = new ArrayList();
+    public static String goalMark = "";
 
     By carMark = By.xpath(".//div[@class='font-weight-bold']");
     By carModel = By.xpath(".//div[@class='fs-14 text-muted mb-2']");
@@ -25,13 +25,10 @@ public class ResultsPage {
 
     @Step("Переход на страницу машины")
     public CarPage goToCarPage() {
-
-        for (SelenideElement element : cars){
-            listOfMarks.add(element.$(carMark).getText() + "\n" + element.$(carModel).getText());
-        }
-
         int random = getRandomInt(0, cars.size());
-        cars.get(random).$(carMark).click();
+        SelenideElement goalCar = cars.get(random);
+        goalMark = goalCar.$(carMark).getText() + "\n" + goalCar.$(carModel).getText();
+        goalCar.$(carMark).click();
 
         return new CarPage();
     }
